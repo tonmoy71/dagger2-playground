@@ -1,6 +1,7 @@
 import Command.Status
+import javax.inject.Inject
 
-class CommandRouter {
+class CommandRouter @Inject constructor() {
     private val commands: Map<String, Command> = mutableMapOf()
 
     fun route(input: String): Status {
