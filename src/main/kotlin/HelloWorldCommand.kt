@@ -1,7 +1,9 @@
 import Command.Status
 import javax.inject.Inject
 
-class HelloWorldCommand @Inject constructor() : Command {
+class HelloWorldCommand @Inject constructor(
+    private val outputter: Outputter
+) : Command {
     override fun key(): String {
         return "hello"
     }
@@ -10,7 +12,7 @@ class HelloWorldCommand @Inject constructor() : Command {
         if (input.isNotEmpty()) {
             return Status.INVALID
         }
-        println("world!")
+        outputter.output("world!")
         return Status.HANDLED
     }
 }
