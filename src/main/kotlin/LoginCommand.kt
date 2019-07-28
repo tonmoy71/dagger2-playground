@@ -8,7 +8,4 @@ class LoginCommand @Inject constructor(
         return Command.Status.HANDLED
     }
 
-    override fun key(): String {
-        return "login"
-    }
 }
