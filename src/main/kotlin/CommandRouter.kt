@@ -2,12 +2,12 @@ import Command.Status
 import javax.inject.Inject
 
 class CommandRouter @Inject constructor(
-    helloWorldCommand: HelloWorldCommand
+    command: Command
 ) {
     private val commands = mutableMapOf<String, Command>()
 
     init {
-        commands[helloWorldCommand.key()] = helloWorldCommand
+        commands[command.key()] = command
     }
 
     fun route(input: String): Status {
