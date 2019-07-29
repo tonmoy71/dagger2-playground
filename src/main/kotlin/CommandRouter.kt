@@ -4,6 +4,10 @@ import javax.inject.Inject
 class CommandRouter @Inject constructor(
     private val commands: MutableMap<String, Command>
 ) {
+    init {
+        println("Creating a new $this")
+    }
+
     fun route(input: String): Status {
         val splitInput: List<String> = split(input)
         if (splitInput.isEmpty()) {
