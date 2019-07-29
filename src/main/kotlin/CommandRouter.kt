@@ -2,13 +2,14 @@ import Command.Status
 import javax.inject.Inject
 
 class CommandRouter @Inject constructor(
-    private val commands: MutableMap<String, Command>
+    private val commands: MutableMap<String, Command>,
+    private val outputter: Outputter
 ) {
     init {
         println("Creating a new $this")
     }
 
-    fun route(input: String): Status {
+    fun route(input: String): Command.Result {
         val splitInput: List<String> = split(input)
         if (splitInput.isEmpty()) {
             return invalidCommand(input)
@@ -17,16 +18,17 @@ class CommandRouter @Inject constructor(
         val commandKey = splitInput[0]
         val command = commands[commandKey] ?: return invalidCommand(input)
 
-        val status = command.handleInput(splitInput.subList(1, splitInput.size))
-        if (status == Status.INVALID) {
-            println("$commandKey : invalid arguments")
+        val args = splitInput.subList(1, splitInput.size)
+        val result = command.handleInput(args)
+        if (result.status == Status.INVALID) {
+            invalidCommand(input)
         }
-        return status
+        return result
     }
 
-    private fun invalidCommand(input: String): Status {
-        println("Couldn't understand $input, please try again.")
-        return Status.INVALID
+    private fun invalidCommand(input: String): Command.Result {
+        outputter.output("Couldn't understand $input, please try again.")
+        return Command.Result.invalid()
     }
 
     /** Split on whitespace */

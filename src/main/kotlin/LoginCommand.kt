@@ -8,9 +8,9 @@ class LoginCommand @Inject constructor(
         println("Creating a new $this")
     }
 
-    override fun handleArg(userName: String): Command.Status {
+    override fun handleArg(userName: String): Command.Result {
         val account = database.getAccount(userName)
         outputter.output("$userName is logged in with balance: ${account.balance}")
-        return Command.Status.HANDLED
+        return Command.Result.handled()
     }
 }

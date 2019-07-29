@@ -4,8 +4,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        HelloWorldModule::class,
-        LoginCommandModule::class,
+        CommandsModule::class,
         UserCommandsModule::class,
         SystemOutModule::class]
 )

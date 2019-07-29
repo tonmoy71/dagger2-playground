@@ -1,14 +1,13 @@
-import Command.Status
 import javax.inject.Inject
 
 class HelloWorldCommand @Inject constructor(
     private val outputter: Outputter
 ) : Command {
-    override fun handleInput(input: List<String>): Status {
+    override fun handleInput(input: List<String>): Command.Result {
         if (input.isNotEmpty()) {
-            return Status.INVALID
+            return Command.Result.invalid()
         }
         outputter.output("world!")
-        return Status.HANDLED
+        return Command.Result.handled()
     }
 }
