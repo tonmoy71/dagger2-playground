@@ -1,5 +1,6 @@
-import Command.Status.HANDLED
-import Command.Status.INPUT_COMPLETED
+import command.Command
+import command.Command.Status.HANDLED
+import command.Command.Status.INPUT_COMPLETED
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton

@@ -1,4 +1,7 @@
-import Command.Status.*
+package command
+
+import CommandRouter
+import command.Command.Status.*
 
 /** Logic to process some user input */
 

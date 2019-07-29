@@ -1,3 +1,6 @@
+package module
+
+import Outputter
 import dagger.Module
 import dagger.Provides
 

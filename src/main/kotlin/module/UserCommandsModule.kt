@@ -1,3 +1,7 @@
+package module
+
+import command.Command
+import command.DepositCommand
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

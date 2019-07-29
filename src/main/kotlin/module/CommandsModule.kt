@@ -1,3 +1,8 @@
+package module
+
+import command.Command
+import command.HelloWorldCommand
+import command.LoginCommand
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

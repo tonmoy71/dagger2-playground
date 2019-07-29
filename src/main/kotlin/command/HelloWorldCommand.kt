@@ -1,3 +1,6 @@
+package command
+
+import Outputter
 import javax.inject.Inject
 
 class HelloWorldCommand @Inject constructor(

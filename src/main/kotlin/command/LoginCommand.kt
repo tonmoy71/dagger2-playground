@@ -1,3 +1,7 @@
+package command
+
+import Database
+import Outputter
 import javax.inject.Inject
 
 class LoginCommand @Inject constructor(

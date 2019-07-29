@@ -1,4 +1,6 @@
-import Command.Result
+package command
+
+import command.Command.Result
 
 /** Abstract command that accepts a single argument */
 

@@ -1,4 +1,5 @@
-import Command.Status
+import command.Command
+import command.Command.Status
 import javax.inject.Inject
 
 class CommandRouter @Inject constructor(
